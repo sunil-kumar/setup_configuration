@@ -1,0 +1,17 @@
+The basic process of getting this set up is as follows:
+
+1. Generate the SSH Key on your Computer
+2. Add the SSH Key to the SSH Agent
+3. Save the SSH public key to your GitHub Account.
+-----------------------------------------------------------------------
+
+Step1. ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+Step2. we need to enable the SSH agent:
+      eval "$(ssh-agent -s)"
+
+Step3. ssh-add ~/.ssh/id_rsa
+
+Step4. Now, got to https://github.com/settings/keys and  Select “Add New SSH” and paste your code into the large text field.
+
+Step4. ssh -T git@github.com
