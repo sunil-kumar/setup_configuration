@@ -14,4 +14,5 @@ Step3. ssh-add ~/.ssh/id_rsa
 
 Step4. Now, got to https://github.com/settings/keys and  Select “Add New SSH” and paste your code into the large text field.
 
-Step4. ssh -T git@github.com
+Step4. Testing your SSH connection
+       ssh -T git@github.com
