@@ -1,0 +1,9 @@
+Installing Drush on Windows with Composer
+1. Install composer
+   https://getcomposer.org/Composer-Setup.exe
+
+2. Run below command on git bias termnal
+   composer global require drush/drush:8.*
+
+3. Add drush path into environment variable.
+   C:\Users\HP\AppData\Roaming\Composer\vendor\drush\drush
