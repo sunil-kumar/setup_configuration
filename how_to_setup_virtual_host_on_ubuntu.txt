@@ -1,0 +1,50 @@
+Steps for setup virtual hosting on ubuntu 18.04
+Prerequisites: Make sure Apache has been installed, if not then  please install apache first(We are assuming apache already installed). 
+Run below command on terminal step by step.
+
+Step1. Create New Virtual Host Files
+       sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/example.com.conf
+
+Step2. Open the new file in your editor with root privileges:
+       sudo nano /etc/apache2/sites-available/example.com.conf
+
+      File will look something like.
+     <VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+       CustomLog ${APACHE_LOG_DIR}/access.log combined
+     </VirtualHost>
+
+    Modify servername Documentroot accordingly. 
+
+    <VirtualHost *:80>
+      ServerAdmin admin@example.com
+      ServerName example.com
+      ServerAlias www.example.com
+      DocumentRoot /var/www/example.com/public_html
+      ErrorLog ${APACHE_LOG_DIR}/error.log
+      CustomLog ${APACHE_LOG_DIR}/access.log combined
+   </VirtualHost>
+
+
+Step3. Enable the New Virtual Host Files
+
+       (a). sudo a2ensite example.com.conf
+
+       Next, disable the default site defined in 000-default.conf:
+      (b). sudo a2dissite 000-default.conf
+
+      (c). sudo systemctl restart apache2 or  sudo service apache2 restart
+
+Done!!!!!!! Thankyou.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+1. sudo cp /etc/apache2/sites-available/airforce.local.conf  /etc/apache2/sites-available/navy.local.conf
+2. sudo gedit /etc/apache2/sites-available/navy.local.conf
+3. sudo a2ensite navy.local.conf
+4. sudo service apache2 restart
+
+5. sudo gedit /etc/hosts
+127.0.0.1 navy.local
