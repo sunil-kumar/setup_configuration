@@ -1,0 +1,13 @@
+1. sql:dump.
+drush sql-dump --result-file=../18.sql
+drush sql-dump > ~/my-sql-dump-file-name.sql
+
+2. Reset password for any user 
+drush upwd admin --password="newpassword"
+
+3. Generate a one time use admin login URL.
+drush uli --uri="http://example.com/"
+drush uli --mail=sunil@kumar.org
+
+4. Install Drush.
+https://riptutorial.com/drupal/example/9674/install-drush
