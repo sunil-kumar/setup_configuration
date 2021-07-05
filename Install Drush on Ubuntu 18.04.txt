@@ -1,0 +1,5 @@
+https://www.linode.com/docs/guides/how-to-install-drush-on-ubuntu-18-04/
+
+https://gorannikolovski.com/blog/drupal-9-and-drush-10
+
+https://www.videodrupal.org/video/20200928/drupal-89-installing-drush
