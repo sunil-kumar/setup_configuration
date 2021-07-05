@@ -1,0 +1,13 @@
+Completely remove composer from Ubuntu
+
+#Step 1
+sudo apt-get remove composer
+sudo apt-get remove --auto-remove composer
+sudo apt-get purge composer
+sudo apt-get purge --auto-remove composer
+
+#Step 2
+sudo rm -rf .composer
+sudo rm -rf .config/composer
+whereis composer
+sudo rm -rf /usr/local/bin/composer
