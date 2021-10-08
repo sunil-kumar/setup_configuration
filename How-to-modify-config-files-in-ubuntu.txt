@@ -1,0 +1,23 @@
+Using Vim Editor
+open file in terminal: sudo vi /etc/apache2/sites-available/abc.conf
+
+Step1: To edit the file, Press I from keyboard to enter into insert mode, here you can do editing just like the normal editor.
+
+Step2: When done with editing, get out of this mode by pressing Esc. It will return you to normal mode.
+
+Step3: To save the file, type :w in command mode
+
+Step4: To quit the editor, type :q in command mode
+
+Step5: To combine the above actions type :wq to save and quit simultaneously.
+
+Summary:
+1. sudo vi /etc/apache2/sites-available/abc.conf
+2. press I.
+3. Do the changes.
+4. press ESC.
+5. :w - to save file.
+6. :q - to quit the editor.
+:wq - you can do simultanesolyy.
+
+https://vitux.com/how-to-edit-config-files-in-ubuntu/
