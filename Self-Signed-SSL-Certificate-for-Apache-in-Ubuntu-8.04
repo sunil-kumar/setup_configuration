@@ -1,0 +1,57 @@
+Step 1 – Creating the SSL Certificate
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
+
+-----------------------------------------------------------------------
+Step 2 – Configuring Apache to Use SSL
+a)sudo cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.bak
+b)sudo vi /etc/apache2/sites-available/default-ssl.conf
+<IfModule mod_ssl.c>
+        <VirtualHost _default_:443>
+                ServerAdmin your_email@example.com
+                ServerName server_domain_or_IP
+
+                DocumentRoot /var/www/html
+
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+                SSLEngine on
+
+                SSLCertificateFile      /etc/ssl/certs/apache-selfsigned.crt
+                SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+
+                <FilesMatch "\.(cgi|shtml|phtml|php)$">
+                                SSLOptions +StdEnvVars
+                </FilesMatch>
+                <Directory /usr/lib/cgi-bin>
+                                SSLOptions +StdEnvVars
+                </Directory>
+
+        </VirtualHost>
+</IfModule>
+
+---------------------------------------------------------------------------
+Step 3 - File Permission
+a)sudo chown -R www-data:www-data /etc/ssl/certs/apache-selfsigned.crt
+b)sudo chown -R www-data:www-data /etc/ssl/private/apache-selfsigned.key
+
+---------------------------------------------------------------------------
+Step 4 – Adjusting the Firewall(firewall should be 'Apache Full')
+a)sudo ufw app list
+b)sudo ufw status
+c)sudo ufw allow 'Apache Full' (if already done, ignore it)
+d)sudo ufw delete allow 'Apache'(special case)
+
+----------------------------------------------------------------------------
+Step 5 – Enabling the Changes in Apache
+We can enable mod_ssl, the Apache SSL module, and mod_headers, needed by some of the settings in our SSL snippet, with the a2enmod command:
+
+a)sudo a2enmod ssl
+b)sudo a2enmod headers
+c)sudo a2ensite default-ssl
+d)sudo apache2ctl configtest
+e)sudo systemctl restart apache2
+
+----------------------------------------------------------------------------
+Step 6 – Testing Encryption
+https://server_domain_or_IP
