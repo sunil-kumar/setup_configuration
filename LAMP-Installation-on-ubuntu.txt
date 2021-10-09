@@ -1,0 +1,79 @@
+STEP:0
+
+1. sudo apt update
+2. sudo apt upgrade(if need any package to upgrade)
+3. sudo apt autoremove (if any unnecessaey software installed)
+4. restart the machine (don't do on server).
+
+-----------------------------------------------------------------------------------
+STEP1: Apache2 server installation:
+
+1. sudo apt install apache2 -y
+2. To check apache2 server successfully installed or not: open browser and type localhost.
+
+-----------------------------------------------------------------------------------
+STEP3: Check firewall settings:
+
+1. sudo ufw status
+2. sudo ufw enable (to enable the firewall)
+3. sudp ufw app list (to check list of firewall)
+4. sudo ufw allow in "Apache Full" (Allow all web traffic to apache)
+
+---------------------------------------------------------------------------------
+STEP4: MySql server installation:
+
+1. sudo apt install mysql-server -y
+2. Lets check to enter into mysql
+3. sudo mysql
+4. show databases;
+
+---------------------------------------------------------------------------------
+STEP5: PHP installation:
+
+1. sudo add-apt-repository ppa:ondrej/php
+2. sudo apt-get update
+3. sudo apt-get install -y php7.3
+4. sudo apt install -y php7.3-curl php7.3-dev php7.3-fpm php7.3-gd php7.3-json php7.3-mbstring php7.3-mysql php7.3-opcache php7.3-readline php7.3-soap php7.3-xml php7.3-zip
+
+5. sudo apt-get install libapache2-mod-php7.3 (if required)
+6. Check php version: php -V
+
+--------------------------------------------------------------------------------
+STEP6: PERMISSION for apache root directory
+
+1. GO to /var/www/html - create one php file and run.
+2. Provide permission to create folder and files uder /var/www/html
+   sudo chown -R $USER:$USER /var/www/html
+
+3. To enable right click - new document
+4. touch ~/Templates/Empty Document
+
+-----------------------------------------------------------------------------------
+STEP7: Install PHPMyAdmin
+1. sudo apt install phpmyadmin
+2. Select Apache2 by pressing space and then press tab and OK
+3. Press Yes and set password for dummy user phpMyAdmin
+4. sudo systemctl restart apache2
+
+5.CHECK : Whether phpMyAdmin is successfully installed or not
+So, goto browser and type http://localhost/phpmyadmin
+Default user name : phpmyadmin
+And enter your password(whatever you used in installation)
+
+6. sudo apt update
+7. Set root password into phpmyadmin.
+    -sudo mysql
+    -SELECT user,authentication_string,plugin,host FROM mysql.user;
+    -ALTER USER ‘root’@‘localhost’ IDENTIFIED WITH caching_sha2_password BY '{{password}}';
+    -SELECT user,authentication_string,plugin,host FROM mysql.user;
+    -sudo mysql -p
+    {Enter your password}    
+
+8. Create a new database user with full privileges
+    - CREATE USER '{{database username}}'@'localhost' IDENTIFIED WITH caching_sha2_password BY '{{password}}';
+    - GRANT ALL PRIVILEGES ON *.* TO '{{database username}}'@'localhost' WITH GRANT OPTION;
+    - exit
+
+9 Restart mysql and apache2
+   - sudo systemctl restart mysql
+   - sudo systemctl restart apache2    
