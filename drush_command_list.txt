@@ -11,3 +11,6 @@ drush uli --mail=sunil@kumar.org
 
 4. Install Drush.
 https://riptutorial.com/drupal/example/9674/install-drush
+
+5. How can I get a list of content types with drush?
+drush ev "print_r(array_keys(node_type_get_types()));"
