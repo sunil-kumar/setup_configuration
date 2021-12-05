@@ -1,0 +1,14 @@
+How To Install PHP Composer on Ubuntu 18.04 & 16.04
+
+1. Prerequisites
+- Shell access to a running Ubuntu system with sudo privilege.
+- PHP must be installed and configured, version 5.3 or higher.
+
+2. Install Composer on Ubuntu
+- curl -sS https://getcomposer.org/installer | php 
+- sudo mv composer.phar /usr/local/bin/composer 
+- chmod +x /usr/local/bin/composer 
+- composer 
+
+3. Upgrade Composer
+- sudo composer self-update 
