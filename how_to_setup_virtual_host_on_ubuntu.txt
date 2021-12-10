@@ -1,3 +1,23 @@
+<VirtualHost *:443>
+    ServerAdmin admin@example.com
+    ServerName abc.y.org
+    ServerAlias abc.y.org
+    DocumentRoot /var/www/html/Airforce/web
+        SSLEngine on
+        SSLCertificateFile      /etc/ssl/private/ycontenthub.crt
+        SSLCertificateKeyFile /etc/ssl/private/ycontenthub.key
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    <Directory "/var/www/html/Airforce/web">
+        Options FollowSymLinks MultiViews
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+--------------------------------------------------------------------------------------------------
+
+
 Steps for setup virtual hosting on ubuntu 18.04
 Prerequisites: Make sure Apache has been installed, if not then  please install apache first(We are assuming apache already installed). 
 Run below command on terminal step by step.
