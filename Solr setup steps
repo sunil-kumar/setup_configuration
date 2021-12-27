@@ -1,0 +1,26 @@
+Step1: Login into server.
+
+Step2: Switch to root user.
+
+Step3: Go to /var/solr/data and disable the basic authentication.
+       rename security.json file to security.json.bkp
+       
+Step4: restart the solr service(sudo systemctl restart solr)
+
+Step5: Create new solr core with using below command.
+       sudo su - solr -c "/opt/solr/bin/solr create -c 'core_name' -n data_driven_schema_configs"  
+
+Step6: Go to solr dashboard and check core has been created or not.
+
+Step7: Download the config.zip file from Drupal search API config page.
+
+Step8: unzip the config file on below path.
+       /var/solr/data/core_name/conf
+     
+Step9: modify user permission of conf folder using below command.
+       chown -R solr:solr /var/solr/data/core_name/conf/
+       
+Step10: Restart the solr service.
+
+Step11: GO to Drupal site and click on 'Index now' button.             
+        
