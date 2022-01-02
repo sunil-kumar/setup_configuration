@@ -1,0 +1,6 @@
+https://www.drupal.org/docs/7/install/step-3-create-settingsphp-and-the-files-directory
+
+https://www.getastra.com/blog/drupal-security/drupal-file-permissions/
+
+
+600 or 660 instead of 664 in
