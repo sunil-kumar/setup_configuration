@@ -4,6 +4,7 @@ drush sql-dump > ~/my-sql-dump-file-name.sql
 
 2. Reset password for any user 
 drush upwd admin --password="newpassword"
+drush upwd ycloud_admin –password=AMHH9898sklssss90@#$
 
 3. Generate a one time use admin login URL.
 drush uli --uri="http://example.com/"
