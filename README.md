@@ -1,61 +1,50 @@
-<p align="center">
- <!-- Will replace with new Open Y logo soon. <a href="https://openy.org">
-    <img alt="Open Y Logo" src="" width="144">
-  </a> -->
-</p>
+# YMCA Content Hub
 
-<h3 align="center">
-  Open Y
-</h3>
-<p align="center">
-  https://openy.org
-</p>
-<p align="center">
-  An open source platform for YMCAs, by YMCAs built on <a href="https://drupal.org">Drupal</a>.
-</p>
+The Y Content Hub is a centralized digital platform where YMCA’s can share content with each other. It will also be a marketplace to validate approved vendors to share content.
+- Y Content Hub is part of the Y Cloud ecosystem.
+- Y Content Hub is FREE to use.
+- Y Content Hub is all about our Collaboration and Community.
+- Self-service Tools to contribute and consume content from Y Hub.
+## Submodules
 
-<p align="center">
-  <a href="https://packagist.org/packages/ymcatwincities/openy"><img src="https://img.shields.io/packagist/v/ymcatwincities/openy.svg?style=flat-square"></a>
-  <a href="https://packagist.org/packages/ymcatwincities/openy"><img src="https://img.shields.io/packagist/dm/ymcatwincities/openy.svg?style=flat-square"></a>
-</p>
+1. yhub_vy_registration - Virtual Y sites to register to Y Hub content sharing platform.
+2. yhub_vy_videos - YMCA association contribute or consume video content to or from Y Hub.
+3. yhub_vy_videos_api - Module provides Video API of Member flow
+4. yhub_vy_videos_showcase - Module provides updated features for YMCA members.
+5. yhub_vy_dashboard - Module provides video dashboard to show video metadata.
 
-***
+## Installation
 
-The Open Y platform is a content management system that uses Drupal 8 functionality and useful modules from YMCAs and digital partners. It’s easy and free to use — everyone is welcome to implement Open Y and run Open Y projects.
+**Prerequisites**
 
-# Demo
-You can always evaluate distribution by visiting demo website - http://sandbox.openymca.org. To get admin credentials to the sandbox - please [visit page for details](https://community.openymca.org/t/how-can-i-try-or-get-a-demo-of-open-y/318).
+This assumes you've already [built an Virtual Y site](https://github.com/ymcatwincities/openy_gated_content#installation) and have it
+ running.
 
-![Open Y Sandbox](docs/assets/sandbox.gif "Open Y Demo")
+- Add this module to your codebase.
+  - via composer: `composer require yhub/ycontenthubextension`
+  - without composer: this is not recommended.
+- Enable the modules
+   - Through the UI:
+     - Visit **Extend** in your toolbar.
+     - Check "Y Hub Registration" and "Y Hub Videos".
+      - Install and say "yes" to add all required dependencies.
+   - Via drush: `drush en yhub_vy_registration`
+- Y Hub setting.
+  - From the toolbar go to **Configuration** > **Web services** > **Y Hub** > **Y Hub Settings** and
+  - Enter association site ID.
+  - 'New video UI' checkbox should be checked.
+  - Click on Save configuration to submit the settings. 
+  
+## Initial Features
+- Any local Y can be a ‘contributor’ of the content.
+- Any local Y can be a ‘consumer’ of the content.
 
-*\* Open Y version 1.3.*
+## Y Hub new UI sections.
+ **Virtual Y Videos listing page** section.
+- From the toolbar go to **Virtual Y** > **Videos** > **Virtual Y Video**
 
-# Installation
-
-### Prerequisites
-
-- Installed [Composer](https://getcomposer.org/download/)
-
-### Installation of Open Y
-We are using [composer](https://getcomposer.org/) for initiating new project tree.
-
-```
-composer create-project ymcatwincities/openy-project MY_PROJECT --no-interaction
-cd MY_PROJECT && composer update
-```
-
-In order to properly install Open Y Distribution, we have separate composer project - [openy-project](https://github.com/ymcatwincities/openy-project). Please read detailed installation instructions [here](https://github.com/ymcatwincities/openy-project).
-
-# Development
-For development environment please read documentation [openy-project](https://github.com/ymcatwincities/openy-project#development-environment).
-
-Other development information you can find at [docs/Development](https://github.com/ymcatwincities/openy/tree/8.x-1.x/docs/Development).
+ **Member flow page** section.
+- 'https://www.association domain.com/yh-videos' 
+- Example:'https://yusa-virtualy.y.org/yh-videos'
 
 
-# Documentation
-- [Documentation](https://github.com/ymcatwincities/openy/tree/8.x-1.x/docs)
-- [Installation instructions](https://github.com/ymcatwincities/openy-project#installation)
-- [Content structure](https://github.com/ymcatwincities/openy/tree/8.x-1.x/docs/Content%20structure)
-- [Technical documentation](https://github.com/ymcatwincities/openy/tree/8.x-1.x/docs/Development)
-- [Terms of Use](https://github.com/ymcatwincities/openy/wiki/Open-Y-Terms-of-Use)
-- [Participation Agreement](https://github.com/ymcatwincities/openy/wiki/Open-Y-Participant-Agreement)
