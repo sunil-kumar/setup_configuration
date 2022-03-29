@@ -1,0 +1,16 @@
+Step1: Install fresh drupal site, you can install via composer.
+       composer create-project drupal/recommended-project project-folder-name
+       composer create-project drupal/recommended-project:9.3.6 project-folder-name (for specific version of drupal).
+       
+       
+Step2: You can install this in your project using Composer as a development dependency like so:
+       composer require mglaman/drupal-check --dev (for site specific)
+       composer global require mglaman/drupal-check (for global)
+        
+        
+Step3: How to use.
+       Go to your drupal root directory.
+       vendor/bin/drupal-check web/modules/custom/yhub_vy_dashboard/ (check the dashboard module)
+       vendor/bin/drupal-check -d web/modules/custom/yhub_vy_dashboard/ (check the dashboard module deprecations)
+       vendor/bin/drupal-check -a web/modules/custom/yhub_vy_dashboard/ (check the dashboard module analysis)
+       vendor/bin/drupal-check -ad web/modules/custom/yhub_vy_dashboard/ (check the dashboard module for both deprecations and analysis)
